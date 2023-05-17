@@ -1,15 +1,17 @@
+'use client'
 // import { motion } from "framer-motion";
 // import { useContext, useState } from "react";
-import { useContext } from "react"
 import { useState } from "react"
+import { useContext } from "react"
 import {AiOutlineClose} from "react-icons/ai"
 import {AiFillGithub} from "react-icons/ai"
 import {BsGoogle} from "react-icons/bs"
 import {FaFacebookF} from "react-icons/fa"
-import { Link, useNavigate } from "react-router-dom";
-import { signInWithEmailAndPassword  } from "firebase/auth";
-import { auth } from "../../utils/firebase";
-import { AuthContext } from "../../context/AuthContext";
+import Link from "next/link"
+// import { signInWithEmailAndPassword } from "firebase/auth"
+// import { signInWithEmailAndPassword } from "firebase/auth"
+import { auth, signInWithEmailAndPassword } from "firebase/auth";
+import { AuthContext } from "@/context/AuthContext"
 import Swal from 'sweetalert2'
 
 // import { Formik, useFormik } from "formik";
@@ -24,7 +26,7 @@ const Login = ()=>{
   const [password,setPassword] = useState('');
 
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const {dispatch} = useContext(AuthContext);
 
@@ -51,10 +53,10 @@ const Login = ()=>{
     })
 
     dispatch({type:"Login",payload:user})
-    navigate("/navbar")
+    // navigate("/navbar")
   })
   .catch((error) => {
-    // Swal.fire('Any fool can use a computer')
+    Swal.fire('Any fool can use a computer')
     setErrors(true)
   });
   };
@@ -135,7 +137,7 @@ const Login = ()=>{
               // value={formik.values.email}
               // onChange={formik.handleChange}
               onChange={(e)=>setEmail(e.target.value)}
-              className="p-3 px-9 text-xl border-2"
+              className="p-3 w-full text-xl border-2"
               />
             </div>
            {/* <span className="text-red-500">Email is required</span> */}
@@ -146,7 +148,7 @@ const Login = ()=>{
               // value={formik.values.password}
               // onChange={formik.handleChange}
               onChange={(e)=>setPassword(e.target.value)}
-              className="p-3 px-9 text-xl border-2"
+              className="p-3 w-full text-xl border-2"
               />
             </div>
             {/* {formik.errors.password && <span className="text-red-500">password is required</span>} */}
@@ -169,7 +171,7 @@ const Login = ()=>{
             <div className="flex items-center justify-center flex-col p-2">
               <p>
                 <span  className="opacity-40"> Looking to </span>
-                <Link to={"/signup"} className="text-blue-600">
+                <Link href={"/signup"} className="text-blue-600">
                   create an account ?
                 </Link>
               </p>
