@@ -1,20 +1,19 @@
-import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
-// Follow this pattern to import other Firebase services
-// import { } from 'firebase/<service>';
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-// TODO: Replace the following with your app's Firebase project configuration
+// Your web app's Firebase configuration
 const firebaseConfig = {
-  //...
+  apiKey:"AIzaSyAMokLjqk-zR6ZubrgbuxUja9HwN0BpeEs",
+  authDomain: "loginform-ad4c2.firebaseapp.com",
+  projectId: "loginform-ad4c2",
+  storageBucket: "loginform-ad4c2.appspot.com",
+  messagingSenderId: "317424757992",
+  appId: "1:317424757992:web:9207f5d465aac38c492d5d"
 };
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-// Get a list of cities from your database
-async function getCities(db) {
-  const citiesCol = collection(db, 'cities');
-  const citySnapshot = await getDocs(citiesCol);
-  const cityList = citySnapshot.docs.map(doc => doc.data());
-  return cityList;
-}
+// Initialize Firebase
+export const app = initializeApp(firebaseConfig);
+export const auth = getAuth();
