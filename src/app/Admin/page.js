@@ -1,29 +1,102 @@
-import React from 'react';
-// import { Link } from 'react-router-dom';
-import Link from 'next/link';
+'use client'
+// import { Link } from "react-router-dom";
+import Link from "next/link"
+// import user1 from "../../src/assests/user1.jpg"
+import  man from "../../src/assests/man.jpg"
+import number from "../../src/assests/number.jpg"
 
 
-const Navbar = () => {
 
-  // const {currentUser} = useContext(AuthContext);
+const NavbarOne = ()=>{
+    return(
+        <>
+        <nav className="bg-white shadow-lg">
+        <div className="max-w-7xl  px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between h-16">
+            <div className="flex-shrink-0 flex items-center">
+              <Link to="/">
+                <img
+                  src={user1}
+                  alt="user1"
+                  className="rounded w-[3rem] h-[3rem]"
+                />
+              </Link>
+              <div className="flex flex-col mx-3 font-serif font-bold ">
+                <div> 
+                  <p>Dheena</p>
+                </div>
+                <div>
+                  <p>dheena@gmail.com</p>
+                </div>
+              </div>
+            </div>
 
-  return (
-    <nav className="bg-white shadow-lg">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          <div className="flex-shrink-0 flex items-center">
-            <Link href="/">
-            <svg id="logo-15" width="49" height="48" viewBox="0 0 49 48" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M24.5 12.75C24.5 18.9632 19.4632 24 13.25 24H2V12.75C2 6.53679 7.03679 1.5 13.25 1.5C19.4632 1.5 24.5 6.53679 24.5 12.75Z" class="ccustom" fill="#17CF97"></path> <path d="M24.5 35.25C24.5 29.0368 29.5368 24 35.75 24H47V35.25C47 41.4632 41.9632 46.5 35.75 46.5C29.5368 46.5 24.5 41.4632 24.5 35.25Z" class="ccustom" fill="#17CF97"></path> <path d="M2 35.25C2 41.4632 7.03679 46.5 13.25 46.5H24.5V35.25C24.5 29.0368 19.4632 24 13.25 24C7.03679 24 2 29.0368 2 35.25Z" class="ccustom" fill="#17CF97"></path> <path d="M47 12.75C47 6.53679 41.9632 1.5 35.75 1.5H24.5V12.75C24.5 18.9632 29.5368 24 35.75 24C41.9632 24 47 18.9632 47 12.75Z" class="ccustom" fill="#17CF97"></path> </svg>
-            </Link>
+            <div className="flex  my-5  font-serif font-bold  ">
+              <div className="mx-[3rem]">
+                <Link to="/signup" className="hover:text-green-600">
+                  Profile
+                </Link>
+              </div>
+              <div>
+                <Link to="/" className="hover:text-green-600">
+                  Logout
+                </Link>
+              </div>
+            </div>
           </div>
-          <div className="flex">
-            <Link href="/Profile" className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Profile</Link>
-            <Link href="/login" className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Logout</Link>
+        </div>
+      </nav>
+      <div>
+        <p className="text-black text-7xl mx-[12rem] my-[3rem] shadow-xl">
+          Front-End Developer
+        </p>
+      </div>
+      <div className="flex flex-row">
+        <div className="mx-[8rem] flex my-[2rem]">
+          <div className="w-[30rem]">
+            <p className="font-extrabold hover:cursor-pointer hover:text-blue-400">
+              BIOGRAPHY
+            </p>
+            <p>
+              Before we can answer this question we need to define passion.
+              Passion, as this executive exemplifies, is energy and engagement
+              for people and the work they do. Passion as an emotion is a
+              valuable trait when channeled appropriately. Focused on helping
+              others understand and doing good work is positive passion. Losing
+              your cool when things go wrong is negative passion. The challenge
+              is to channel the positive to ameliorate or eliminate the
+              negative.
+            </p>
+            <p>
+              Passion becomes the catalyst that galvanizes individuals to commit
+              to their own development as well as to deliver products and
+              services that customers need. Passion too develops when employees
+              commit – on company time – to give back to their community as
+              volunteers.
+            </p>
+            <p>
+              Passion is a powerful driver when applied to purpose. It becomes
+              the personal commitment to making a positive difference to achieve
+              sustainable results.
+            </p>
+          </div>
+          <div>
+            <img
+              src={man}
+              alt="man"
+              className="my-[5rem] mx-[5rem]  cursor-pointer hover:shadow-2xl h-[15rem] w-[18rem]"
+            />
+          </div>
+          <div>
+            <img
+              src={number}
+              alt="number"
+              className="mx-3 w-[20rem] h-[25rem]"
+            />
           </div>
         </div>
       </div>
-      </nav>
-  );
-};
-
-export default Navbar;
+      </>
+    )
+}
+export default NavbarOne;
