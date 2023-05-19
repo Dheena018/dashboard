@@ -1,52 +1,57 @@
 'use client'
-// import { motion } from "framer-motion";
-// import { useContext, useState } from "react";
-import { useState } from "react"
-import { useContext } from "react"
-import {AiOutlineClose} from "react-icons/ai"
-import {AiFillGithub} from "react-icons/ai"
-import {BsGoogle} from "react-icons/bs"
-import {FaFacebookF} from "react-icons/fa"
-import Link from "next/link"
-import { getAuth, signInWithEmailAndPassword } from "@firebase/auth";
-import { AuthContext } from "@/context/AuthContext"
-import { useRouter } from "next/navigation";
-import { app } from "@/utilities/firbase"
+import { useState } from "react";
+// import Swal from 'sweetalert2'
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useContext } from "react";
+import { auth } from "@/utilities/firbase";
+import { AuthContext } from "@/context/AuthContext";
+import Link from "next/link";
+import { useRouter } from 'next/navigation'
+// import { getAuth } from "firebase/auth";
+// import { Formik, useFormik } from "formik";
+// import * as Yup from "yup";
 
 
 
 const Login = ()=>{
 
-  const router = useRouter();
 
   const [errors,setErrors] = useState(false);
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
+  const router = useRouter()
 
 
-  // const navigate = useNavigate();
+
 
   const {dispatch} = useContext(AuthContext);
 
   const handleSubmit = (e)=>{
     e.preventDefault();
     
-    const auth = getAuth(app);
+    const auth = getAuth()
     signInWithEmailAndPassword (auth, email, password)
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
 
     dispatch({type:"Login",payload:user})
-    
-    router.push('/Admin');
-    // console.log('Admin')
+    console.log(user);
   })
   .catch((error) => {
     setErrors(true)
   });
+  if(email === "dheena@gmail.com"){
+    router.push("/Admin")
+
+  }
+  if(email === "akashsrma@gmail.com"){
+    navigate("/navbartwo")
+  }
+  if(email === "karthickeyan@gmail.com"){
+    navigate("navbarthree")
+  }
   };
- 
 
   // const Users =(
   //       {
@@ -81,62 +86,37 @@ const Login = ()=>{
 
 //   console.log(formik);
     return (
-      <div className="w-full h-screen shadow-md flex items-center justify-center bg-cyan-500">
-        <div className="w-80 bg-white rounded-lg">
-          <div className="flex items-center justify-between p-2">
-            <span className="text-lg">Login with</span>
-            <p className="cursor-progress hover:shadow:md">
-              <AiOutlineClose />
-            </p>
+      <div className="w-full h-screen shadow-md flex items-center justify-center">
+        <div className="w-80 bg-white rounded-lg shadow-2xl">
+          <div>
+            <h2 className="text-3xl font-bold text-center">Login</h2>
           </div>
-          <div className="p-2">
-            <ul className="flex justify-center items-center gap-[2rem] rounded-full ">
-              <li className="p-2 text-5xl bg-grey-800 text-black rounded-full">
-                <a href="Github">
-                  <AiFillGithub />
-                </a>
-              </li>
-              <li className=" p-3 text-3xl bg-red-600 text-white rounded-full">
-                <a href="Google">
-                  <BsGoogle />
-                </a>
-              </li>
-              <li className="p-3 text-3xl bg-blue-800 text-white rounded-full">
-                <a href="Facebook">
-                  <FaFacebookF />
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div className="flex w-100 flex-row items-center p-2">
-            <hr className="w-3/6" />
-            <p className="text-xl p-4">or</p>
-            <hr className="w-3/6" />
-          </div>
-          <div className="w-full">
+          <div className="w-full my-6">
             <form onSubmit={handleSubmit}>
-              <div className="form-control">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  // value={formik.values.email}
-                  // onChange={formik.handleChange}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="p-3 w-full text-xl border-2"
-                />
-              </div>
-              {/* <span className="text-red-500">Email is required</span> */}
-              <div className="form-control">
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="password"
-                  // value={formik.values.password}
-                  // onChange={formik.handleChange}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="p-3 w-full text-xl border-2"
-                />
+              <div className="flex flex-col gap-3">
+                <div className="form-control">
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    // value={formik.values.email}
+                    // onChange={formik.handleChange}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="p-3 px-5 text-xl border-2"
+                  />
+                </div>
+                {/* <span className="text-red-500">Email is required</span> */}
+                <div className="form-control">
+                  <input
+                    type="password"
+                    name="password"
+                    placeholder="password"
+                    // value={formik.values.password}
+                    // onChange={formik.handleChange}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="p-3 px-5 text-xl border-2"
+                  />
+                </div>
               </div>
               {/* {formik.errors.password && <span className="text-red-500">password is required</span>} */}
 
