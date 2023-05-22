@@ -43,7 +43,6 @@ const Login = ()=>{
   });
   if(email === "dheena@gmail.com"){
     router.push("/Admin")
-
   }
   if(email === "akashsrma@gmail.com"){
     router.push("/AdminOne")
