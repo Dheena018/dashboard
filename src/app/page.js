@@ -46,10 +46,10 @@ const Login = ()=>{
 
   }
   if(email === "akashsrma@gmail.com"){
-    navigate("/AdminOne")
+    router.push("/AdminOne")
   }
   if(email === "karthickeyan@gmail.com"){
-    navigate("navbarthree")
+    router.push("/AdminTwo")
   }
   };
 

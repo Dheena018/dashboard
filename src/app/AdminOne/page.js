@@ -1,6 +1,7 @@
 // import user2 from "../../src/assests/userr2.jpg"
 import Image from "next/image";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import Link from "next/link";
 
 
 const NavbarTwo = ()=>{
@@ -10,7 +11,7 @@ const NavbarTwo = ()=>{
           <div className="max-w-7xl  px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between h-16">
               <div className="flex-shrink-0 flex items-center">
-                <Link to="/">
+                <Link href="/">
                   <Image
                     src="/user2"
                     alt="Picture of the author"
@@ -31,12 +32,12 @@ const NavbarTwo = ()=>{
 
               <div className="flex flex-row gap-[3rem] my-5 font-serif font-bold animate-pulse ">
                 <div>
-                  <Link to="/signup" className="hover:text-green-600">
+                  <Link href="/signup" className="hover:text-green-600">
                     Profile
                   </Link>
                 </div>
                 <div>
-                  <Link to="/" className="hover:text-green-600">
+                  <Link href="/" className="hover:text-green-600">
                     Logout
                   </Link>
                 </div>
@@ -50,16 +51,19 @@ const NavbarTwo = ()=>{
           </p>
         </div>
         <table className="border-2 text-center w-[50rem] mx-[12rem]">
+            <tbody>
           <tr className="bg-green-600 ">
             <th>ID</th>
             <th>Name</th>
             <th>Department</th>
           </tr>
+          
           <tr className="bg-green-200">
             <th>S.No</th>
             <th>AKash Srma</th>
             <th>Front-end Developer</th>
           </tr>
+          </tbody>
         </table>
       </>
     );
