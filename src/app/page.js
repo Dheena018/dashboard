@@ -46,7 +46,7 @@ const Login = ()=>{
 
   }
   if(email === "akashsrma@gmail.com"){
-    navigate("/navbartwo")
+    navigate("/AdminOne")
   }
   if(email === "karthickeyan@gmail.com"){
     navigate("navbarthree")
