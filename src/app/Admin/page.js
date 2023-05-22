@@ -3,7 +3,6 @@
 import Link from "next/link"
 // import user1 from "../../src/assests/user1.jpg"
 import Image from "next/image";
-
 // import  man from "../../src/assests/man.jpg"
 // import number from "../../src/assests/number.jpg"
 
@@ -86,15 +85,19 @@ const NavbarOne = ()=>{
             </div>
             <div>
               <Image
-                src={man}
-                alt="man"
+                src="/man"
+                width={30}
+                height={30}
+                alt="Picture of the author"
                 className="my-[5rem] mx-[5rem]  cursor-pointer hover:shadow-2xl h-[15rem] w-[18rem]"
               />
             </div>
             <div>
               <Image
-                src={number}
-                alt="number"
+                src="/number"
+                width={30}
+                height={30}
+                alt="Picture of the author"
                 className="mx-3 w-[20rem] h-[25rem]"
               />
             </div>
