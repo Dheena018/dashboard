@@ -1,5 +1,6 @@
 // import user2 from "../../src/assests/userr2.jpg"
 import Image from "next/image";
+// import user2 from "../public/user2.jpg"
 // import { Link } from "react-router-dom";
 import Link from "next/link";
 
@@ -32,7 +33,7 @@ const NavbarTwo = ()=>{
 
               <div className="flex flex-row gap-[3rem] my-5 font-serif font-bold animate-pulse ">
                 <div>
-                  <Link href="/signup" className="hover:text-green-600">
+                  <Link href="/Profile" className="hover:text-green-600">
                     Profile
                   </Link>
                 </div>

@@ -141,7 +141,7 @@ const Login = ()=>{
               <div className="flex items-center justify-center flex-col p-2">
                 <p>
                   <span className="opacity-40"> Looking to </span>
-                  <Link href={"/signup"} className="text-blue-600">
+                  <Link href={"/Profile"} className="text-blue-600">
                     create an account ?
                   </Link>
                 </p>

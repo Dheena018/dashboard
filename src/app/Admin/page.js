@@ -36,7 +36,7 @@ const NavbarOne = ()=>{
 
               <div className="flex  my-5  font-serif font-bold  ">
                 <div className="mx-[3rem]">
-                  <Link href="/signup" className="hover:text-green-600">
+                  <Link href="/Profile" className="hover:text-green-600">
                     Profile
                   </Link>
                 </div>
